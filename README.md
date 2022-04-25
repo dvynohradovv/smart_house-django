@@ -9,26 +9,18 @@ Coursera House
 
 Установите pipenv https://docs.pipenv.org/
 
-.. code-block:: bash
-
     $ pip install pipenv
 
 
 Установите зависимости проекта, включая зависимости для разработки
 
-.. code-block:: bash
-
     $ pipenv install --dev
 
 Активируйте virtualenv проекта
 
-.. code-block:: bash
-
     $ pipenv shell
 
 Запустите миграции
-
-.. code-block:: bash
 
     $ python manage.py migrate
 
