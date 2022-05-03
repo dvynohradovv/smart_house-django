@@ -24,7 +24,17 @@ class ControllerView(FormView):
         return context
 
     def get_initial(self):
-        return {}
+        try:
+            with open(os.path.join(tempfile.gettempdir(), "controller.json")) as fs:
+                data = json.load(fs)
+            return {
+                'bedroom_target_temperature': data.get('bedroom_target_temperature', None),
+                'hot_water_target_temperature': data.get('hot_water_target_temperature', None),
+                'bedroom_light': data.get('bedroom_light', False),
+                'bathroom_light': data.get('bathroom_light', False),
+            }
+        except FileNotFoundError:
+            return {}
 
     def form_valid(self, form):
         return super(ControllerView, self).form_valid(form)
