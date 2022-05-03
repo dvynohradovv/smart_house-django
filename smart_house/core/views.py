@@ -1,3 +1,7 @@
+import json
+import os
+import tempfile
+
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 
@@ -12,7 +16,11 @@ class ControllerView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super(ControllerView, self).get_context_data()
-        context['data'] = {}
+        try:
+            with open(os.path.join(tempfile.gettempdir(), "controller.json")) as fs:
+                context['data'] = json.load(fs)
+        except FileNotFoundError:
+            context['data'] = {}
         return context
 
     def get_initial(self):
