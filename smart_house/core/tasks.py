@@ -26,6 +26,29 @@ def request_controller_newdata():
     return data
 
 
+class SmartHomeController:
+    def __init__(self, data):
+        self.data = data
+
+    def check_leak_water(self):
+        pass
+
+    def check_cold_water(self):
+        pass
+
+    def check_hot_water(self):
+        pass
+
+    def check_curtains(self):
+        pass
+
+    def check_smoke(self):
+        pass
+
+    def check_bedroom_temperature(self):
+        pass
+
+
 @celery.task()
 def smart_home_manager():
     # Здесь ваш код для проверки условий
