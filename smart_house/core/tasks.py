@@ -52,4 +52,10 @@ class SmartHomeController:
 @celery.task()
 def smart_home_manager():
     # Здесь ваш код для проверки условий
-    pass
+    smart_home_controller = SmartHomeController(request_controller_newdata())
+    smart_home_controller.check_leak_water()
+    smart_home_controller.check_cold_water()
+    smart_home_controller.check_hot_water()
+    smart_home_controller.check_curtains()
+    smart_home_controller.check_smoke()
+    smart_home_controller.check_bedroom_temperature()
