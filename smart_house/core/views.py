@@ -36,5 +36,7 @@ class ControllerView(FormView):
         except FileNotFoundError:
             return {}
 
-    def form_valid(self, form):
+    def form_valid(self, form: ControllerForm):
+        with open(os.path.join(tempfile.gettempdir(), "form.json"), 'w') as fs:
+            json.dump(form.cleaned_data, fs)
         return super(ControllerView, self).form_valid(form)
