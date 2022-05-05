@@ -1,8 +1,8 @@
-Coursera House
+Smart House pet-project using Python, Django and Celery
 ==============
-
-Это шаблон курсового проекта от преподавателей курса.
-
+<img src="https://user-images.githubusercontent.com/55922843/166962659-0088ce56-6c79-4c5e-b768-aa387e58f685.jpg" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="550" height="350" />
+<img src="https://user-images.githubusercontent.com/55922843/166962717-1851c8dd-e6da-414f-a107-ddef5f39ed66.jpg" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="550" height="350" />
+<img src="https://user-images.githubusercontent.com/55922843/166962761-9b8b0132-5c23-41ac-8d82-19d6d8ded829.jpg" data-canonical-src="https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png" width="800" height="500" />
 
 Установка
 ---------
@@ -23,10 +23,7 @@ Coursera House
 Запустите миграции
 
     $ python manage.py migrate
-
-И приступайте к разработке.
-
-
+    
 Запуск
 ------
 
