@@ -27,14 +27,14 @@ class ControllerView(FormView):
         try:
             with open(os.path.join(tempfile.gettempdir(), "controller.json")) as fs:
                 data = json.load(fs)
-            return {
-                'bedroom_target_temperature': data.get('bedroom_target_temperature', None),
-                'hot_water_target_temperature': data.get('hot_water_target_temperature', None),
-                'bedroom_light': data.get('bedroom_light', False),
-                'bathroom_light': data.get('bathroom_light', False),
-            }
         except FileNotFoundError:
-            return {}
+            data = {"bedroom_light": False, "bathroom_light": False}
+        return {
+            'bedroom_target_temperature': Setting.objects.get(controller_name="bedroom_target_temperature").value,
+            'hot_water_target_temperature': Setting.objects.get(controller_name="hot_water_target_temperature").value,
+            'bedroom_light': data.get('bedroom_light'),
+            'bathroom_light': data.get('bathroom_light'),
+        }
 
     def form_valid(self, form: ControllerForm):
         with open(os.path.join(tempfile.gettempdir(), "form.json"), 'w') as fs:
